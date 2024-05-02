@@ -1,0 +1,125 @@
+header {
+    position: relative;
+    min-height: 100vh;
+
+    .header-content {
+        @include centerChild();
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 100px 0;
+        color: $white1;
+        transform: translateY(40px);
+        animation: headerAnim 1.5s forwards;
+    
+        @keyframes headerAnim {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        h1 {
+            @include title;
+            font-size: 4rem;
+            letter-spacing: 6px;
+            line-height: 100px;
+        }
+    
+        p {
+            margin: 40px auto 60px;
+            font-style: italic;
+            width: 85%;
+        }
+    
+        i {
+            rotate: 90deg;
+            font-size: 1.2rem;
+            border: 2px solid $white1;
+            border-radius: 150px;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 1000px) {
+            h1 {
+                font-size: 3.5rem;
+                line-height: 70px;
+            }
+
+            p {
+                line-height: 40px;
+            }
+        }
+    }
+
+    nav {
+        width: 70%;
+        height: 70px;
+        margin: 0 auto;
+        background-color: rgba(243, 243, 243, 0.3);
+        color: $white1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        ul {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .menu-nav {
+            &:hover li:not(:hover) {
+                background: none;
+                color: $white1;
+            }
+
+            li {
+                @include title;
+                font-size: 0.7rem;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                &:first-child {
+                    background-color: $white1;
+                    color: $black1;
+                }
+            
+                &:hover {
+                    background-color: $white1;
+                    color: $black1;
+                }
+            }
+        }
+
+        .social-nav {
+            font-size: 1.1rem;
+            min-width: 100px;
+            width: 25%;
+            max-width: 300px;
+            justify-content: space-around;
+            margin-right: 10px;
+            cursor: pointer;
+
+            @media screen and (max-width: 1000px) {
+                display: none;
+            }
+
+            li {
+                transition: 0.15s;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+}
